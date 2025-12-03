@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Please Sign Up</h1>
-<form class="" action="Login&Signup/login/" method="post">
+<h1>Please Login</h1>
+<form class="" action="{% url 'login' %}" method="post">
     {% csrf_token %}
     <h2>Username</h2>
     {{ form.username }}
     <h2>Password</h2>
-    {{ form.password1 }}
-    <h2>Confirm Password</h2>
-    {{ form.password2 }}
+    {{ form.password }}
     <button>Submit</button>
 </form>
 

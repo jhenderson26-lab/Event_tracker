@@ -10,6 +10,12 @@
         
         <title>Hold</title>
     </head>
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li><a href="{% url 'login' %}">Log In</a></li>
+        <li><a href="{% url 'events' %}">Events</a></li>
+    </ul>
     <body>
         {% block content %}
         {% endblock content %}
