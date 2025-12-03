@@ -17,6 +17,7 @@
         <li><a href="{% url 'events' %}">Events</a></li>
     </ul>
     <body>
+        {{owner}}
         {% block content %}
         {% endblock content %}
     </body>
