@@ -79,8 +79,6 @@ def create_view(request):
             event = form.save(commit=False)
             event.user = ower
             event.save()
-
-           
             for day in models.Event.objects.filter(user=ower):
                 day.event_date = day.created_at.date() + timedelta(days=day.set_date)
                 day.save()
@@ -94,3 +92,4 @@ def delete_event(request, event_id):
     event.delete()
     return redirect('events')
 
+# add confetti

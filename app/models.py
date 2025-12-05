@@ -17,5 +17,5 @@ class Event(models.Model):
         if self.event_date != None:
             until = self.event_date - today
             until_stripped = str(until).split("day", 1)[0]
-            num_until = int(until_stripped.strip())
+            num_until = until_stripped.strip()
             return num_until
