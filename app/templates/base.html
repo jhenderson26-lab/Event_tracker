@@ -9,15 +9,16 @@
         <title>{% block title %}TimeTo{% endblock %}</title>
     </head>
     <body>
-        <div class="nav">
-        <nav class="bar">
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                <li><a href="{% url 'login' %}">Log In</a></li>
-                <li><a href="{% url 'events' %}">Events</a></li>
-            </ul>
-        </nav>
+        <div class=="ombre">
+            <nav class="nav_holder">
+                <ul>
+                    <a href="{% url 'home' %}" class="link">Home</a>
+                    <a href="{% url 'signup' %}" class="link">Sign Up</a>
+                    <a href="{% url 'login' %}" class="link">Log In</a>
+                    <a href="{% url 'events' %}" class="link">Events</a>
+                </ul>
+            </nav>
+        </div>
         
 
         {{owner}}
@@ -26,3 +27,9 @@
         <script src="{% static 'js/main.js' %}"></script>
     </body>
 </html>
+
+<!-- {% if user.id == None %} -->
+ <!-- --show login- -->
+  <!-- {% else %} -->
+<!-- --show logout-- -->
+ <!-- {% endif %} -->

@@ -1,11 +1,42 @@
+/* :root {
+    --nav-bg: rgba(255, 255, 255, .14);
+    --nav-border: rgba(255, 255, 255, .35);
+    --nav-text: #eef6f5;
+    --nav-accent: #70f0cf;
+    --nav-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    --radius: 16px;
+} */
+
 body {
     background-image: url("../Images/mountain_theme.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(2, 8, 5);
 }
 
-.nav {
-
+.nav_holder {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 50px;
 }
 
-.bar {
-    
+.ombre {
+    .ombre-image-container {
+      width: 100%; /* Adjust as needed */
+      height: 300px; /* Adjust as needed */
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), url('your-image.jpg');
+      background-size: cover; /* Ensures the image covers the container */
+      background-position: center; /* Centers the image */
+      background-repeat: no-repeat; /* Prevents image repetition */
+    } 
+}
+
+.link_box {
+    width: 200px;
+    height: 100px;
+    background-color: black;
+}
+
+.link {
+    color: white;
 }
