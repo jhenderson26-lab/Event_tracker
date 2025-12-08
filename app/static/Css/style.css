@@ -8,7 +8,7 @@
 } */
 
 body {
-    background-image: url("../Images/mountain_theme.jpg");
+    background-image: url("../Images/black\ and\ aquamarine.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgb(2, 8, 5);
@@ -17,9 +17,8 @@ body {
 .nav_holder {
     background-color: rgba(255, 255, 255, 0.3);
     width: 100%;
-    height: 50px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-around;
 }
 
 .ombre {
@@ -37,11 +36,18 @@ body {
     color: white;
 }
 
-.white {
+.whitet {
     color: white;
 }
 
 .button {
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    color: white;
+    /* background-color: aquamarine; */
+    background-color: black;
+    border-radius: 5px;
 }

@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="link">Make events here</h1>
+<h1 class="whitet">Make events here</h1>
 
-<form class="" action="{% url 'create_event' %}" method="post">
+<form class="whitet" action="{% url 'create_event' %}" method="post">
             {% csrf_token %}
             {{ event }}
-            <input class="" type="submit">
+            <button type="submit" class="btn">submit</button>
         </form>
 
-        <h2 class="link">Events</h2>
+        <h2 class="whitet">Events</h2>
         <ul>
             {% for e in text %}
             <li>{{ e.title }} — until {{ e.until_event }} days</li>
-            <a href="{% url 'delete' e.id %}" class="">Delete</a>
+            <a href="{% url 'delete' e.id %}" class="whitet">Delete</a>
             {% empty %}
-            <li class="link">No events yet.</li>
+            <li class="whitet">No events yet.</li>
             {% endfor %}
         </ul>
 
