@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1 class="link">Make events here</h1>
+<canvas id="confetti"></canvas>
 
-<form class="" action="{% url 'create_event' %}" method="post">
+<form id="form" class="" action="{% url 'create_event' %}" method="post">
             {% csrf_token %}
             {{ event }}
-            <input class="" type="submit">
+            <input class="" type="submit" id="event_button">
         </form>
 
         <h2 class="link">Events</h2>
