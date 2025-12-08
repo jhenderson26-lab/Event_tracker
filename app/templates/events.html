@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Make events here</h1>
+<h1 class="link">Make events here</h1>
 
 <form class="" action="{% url 'create_event' %}" method="post">
             {% csrf_token %}
@@ -8,13 +8,13 @@
             <input class="" type="submit">
         </form>
 
-        <h2>Events</h2>
+        <h2 class="link">Events</h2>
         <ul>
             {% for e in text %}
             <li>{{ e.title }} — until {{ e.until_event }} days</li>
             <a href="{% url 'delete' e.id %}" class="">Delete</a>
             {% empty %}
-            <li>No events yet.</li>
+            <li class="link">No events yet.</li>
             {% endfor %}
         </ul>
 
