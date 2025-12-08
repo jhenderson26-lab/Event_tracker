@@ -1,15 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Please Sign Up</h1>
+<h1 class="link">Please Sign Up</h1>
 <form class="" action="{% url 'signup' %}" method="post">
     {% csrf_token %}
-    <h2>Username</h2>
+    <h2 class="link">Username</h2>
     {{ form.username }}
-    <h2>Password</h2>
+    <h2 class="link">Password</h2>
     {{ form.password1 }}
-    <h2>Confirm Password</h2>
+    <h2 class="link">Confirm Password</h2>
     {{ form.password2 }}
-    <input class="" type="submit">
+    <input class="button" type="submit">
 </form>
-
 {% endblock content %}

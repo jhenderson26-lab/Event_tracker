@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Please Login</h1>
+<h1 class="link">Please Login</h1>
 <form class="" action="{% url 'login' %}" method="post">
     {% csrf_token %}
-    <h2>Username</h2>
+    <h2 class="link">Username</h2>
     {{ form.username }}
-    <h2>Password</h2>
+    <h2 class="link">Password</h2>
     {{ form.password }}
     <button>Submit</button>
 </form>
