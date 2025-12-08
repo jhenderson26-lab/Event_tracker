@@ -9,4 +9,5 @@ urlpatterns = [
     path('Login&Signup/login', login_view, name='login'),
     path('events/', event_view, name='events'),
     path('create_event/', create_view, name='create_event'),
-    path('delete_event/<event_id>', delete_event, name="delete")]
+    path('delete_event/<event_id>', delete_event, name="delete"),
+    path('logout/', logout_view, name='logout'),]

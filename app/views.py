@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta, datetime
 from datetime import date
@@ -53,7 +53,7 @@ def check_event(day):
     else:
         day.delete()
 
-
+@login_required(login_url='home')
 def event_view(request):
     if request.user.is_authenticated:
         event = forms.EventForm()
@@ -91,5 +91,10 @@ def delete_event(request, event_id):
     event = models.Event.objects.get(id=event_id)
     event.delete()
     return redirect('events')
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+    
 
 # add confetti
