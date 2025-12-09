@@ -9,8 +9,10 @@
         <title>{% block title %}TimeTo{% endblock %}</title>
     </head>
     <body>
-        <div class="ombre">
-            <nav class="nav_holder">
+        <header class="main-nav">
+            <div class="nav-inner">
+                <a href="{% url 'home' %}" class="logo">TimeTo</a>
+                <nav class="nav_holder">
                 <ul>
                     <a href="{% url 'home' %}" class="link">Home</a>
                     <a href="{% url 'signup' %}" class="link">Sign Up</a>
@@ -20,10 +22,10 @@
                     <a href="{% url 'logout' %}" class="link">Log Out</a>
                     <a href="{% url 'events' %}" class="link">Events</a>
                     {% endif %}
-                    
                 </ul>
-            </nav>
-        </div>
+                </nav>
+            </div>
+        </header>
         
 
         {{owner}}
