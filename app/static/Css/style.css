@@ -84,7 +84,7 @@ body {
 }
 
 .hello {
-    color: var(--nav-text);
+    color: black;
     opacity: .9;
     font-size: .95rem;
 }
@@ -238,4 +238,16 @@ input {
 
 .login-card {
     color: black;
+}
+
+.event-card {
+    color: black;
+}
+
+.t-event-box {
+    margin-top: 100px;
+}
+
+.event-cont {
+    
 }

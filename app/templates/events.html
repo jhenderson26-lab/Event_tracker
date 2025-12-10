@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="whitet">Make events here</h1>
-
-<form id="form" class="whitet" action="{% url 'create_event' %}" method="post">
-            {% csrf_token %}
-            {{ event }}
-            <button class="btn" type="submit" id="event_button">submit</button>
-        </form>
-
-        <h2 class="whitet">Events</h2>
-        <ul>
-            {% for e in text %}
-            <li>{{ e.title }} — until {{ e.until_event }} days</li>
-            <a href="{% url 'delete' e.id %}" class="whitet">Delete</a>
-            {% empty %}
-            <li class="whitet">No events yet.</li>
-            {% endfor %}
-        </ul>
+<div class="t-event-box">
+    <div class="event-cont">
+        <h1 class="event-card">Make events here</h1>
+    <form id="form" class="whitet" action="{% url 'create_event' %}" method="post">
+        {% csrf_token %}
+        {{ event }}
+        <button class="btn" type="submit" id="event_button">submit</button>
+    </form>
+    <div class="b-event-box">
+    <h2 class="whitet">Events</h2>
+    <ul>
+        {% for e in text %}
+        <li>{{ e.title }} — until {{ e.until_event }} days</li>
+        <a href="{% url 'delete' e.id %}" class="whitet">Delete</a>
+        {% empty %}
+        <li class="whitet">No events yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
 
         
 {% endblock content %}
