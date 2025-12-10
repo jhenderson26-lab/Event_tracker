@@ -12,18 +12,28 @@
         <header class="main-nav">
             <div class="nav-inner">
                 <a href="{% url 'home' %}" class="logo">TimeTo</a>
-                <nav class="nav_holder">
+
+                <nav class="primary-links">
                 <ul>
-                    <a href="{% url 'home' %}" class="link">Home</a>
-                    <a href="{% url 'signup' %}" class="link">Sign Up</a>
-                    {% if user.id == None %}
-                    <a href="{% url 'login' %}" class="link">Log In</a>
-                    {% else %}
-                    <a href="{% url 'logout' %}" class="link">Log Out</a>
-                    <a href="{% url 'events' %}" class="link">Events</a>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'events' %}">Events</a></li>
                     {% endif %}
                 </ul>
                 </nav>
+
+                <div class="auth-area">
+                    {% if user.is_authenticated %}
+                        <span class="hello">Hi {{ user.username }}!</span>
+                        <form action="{% url 'logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn logout-btn">Log out</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="btn signup-btn">Sign up</a>
+                        <a href="{% url 'login' %}" class="btn login-btn">Log in</a>
+                    {% endif %}
+                </div>
             </div>
         </header>
         
