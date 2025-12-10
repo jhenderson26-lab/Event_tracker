@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card2">
+    <div class="card signup-card">
+        <h2 class="login-card" style="text-align: center;">Sign Up</h2>
+
+        <form class="login-form" method="post" novalidate>
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <div class="field">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+
+        <div class="field">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+
+        <div class="field">
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+        </div>
+
+        <div class="field">
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+        </div>
+
+        <div class="btn-center">
+            <button type="submit" class="login-button">Register</button>
+        </div>
+        </form>
+
+        <a class="have-acc" href="/accounts/login">Already have an account?</a>
+    </div>
+</div>
+{% endblock %}

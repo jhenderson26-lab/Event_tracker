@@ -6,8 +6,27 @@ from datetime import timedelta, datetime
 from datetime import date
 from . import models
 from . import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.views.generic import CreateView
+from django.urls import reverse_lazy
+from app.forms import *
 
 # Create your views here.
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("login")
+    template_name = "registration/signup.html"
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/signup.html', {'form': form})
+
 def getting_user(request):
     user_id = request.user.id
     owner = models.User.objects.get(id=user_id)
@@ -32,17 +51,6 @@ def register_view(request):
         form = UserCreationForm()
     context = { 'form': form }
     return render(request, 'Login&Signup/signup.html', context) 
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            login(request, form.get_user())
-            return redirect('home') 
-    else:
-        form = AuthenticationForm()
-    context = { 'form': form }
-    return render(request, 'Login&Signup/login.html', context)
 
 def check_event(day):
     int_date = int((f'{day.event_date.year}' + f'{day.event_date.month}' + f'{day.event_date.day}'))

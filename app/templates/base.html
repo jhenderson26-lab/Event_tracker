@@ -1,43 +1,52 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8"/>
-        <meta http-equiv="X-UA-Compatable" content="IE-edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="{% static 'Css/style.css' %}"/>
-        <title>{% block title %}TimeTo{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+        <title>TimeTo</title>
     </head>
+
+<!-- hello world("print") -->
+
     <body>
         <header class="main-nav">
             <div class="nav-inner">
-                <a href="{% url 'home' %}" class="logo">TimeTo</a>
-                <nav class="nav_holder">
+                <a href="{% url 'home' %}" class="logo">Login/Logout</a>
+
+                <nav class="primary-links">
                 <ul>
-                    <a href="{% url 'home' %}" class="link">Home</a>
-                    <a href="{% url 'signup' %}" class="link">Sign Up</a>
-                    {% if user.id == None %}
-                    <a href="{% url 'login' %}" class="link">Log In</a>
-                    {% else %}
-                    <a href="{% url 'logout' %}" class="link">Log Out</a>
-                    <a href="{% url 'events' %}" class="link">Events</a>
-                    {% endif %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
                 </ul>
                 </nav>
+
+                <div class="auth-area">
+                    {% if user.is_authenticated %}
+                        <span class="hello">Hi {{ user.username }}!</span>
+                        <form action="{% url 'logout' %}" method="post" class="logout-form">
+                            {% csrf_token %}
+                            <button type="submit" class="btn logout-btn">Log out</button>
+                        </form>
+                    {% else %}
+                        <a href="{% url 'signup' %}" class="btn signup-btn">Sign up</a>
+                        <a href="{% url 'login' %}" class="btn login-btn">Log in</a>
+                    {% endif %}
+                </div>
             </div>
         </header>
-        
 
-        {{owner}}
-        {% block content %}
-        {% endblock content %}
-        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-        <script type="module" src="{% static 'js/main.js' %}"></script>
+
+    {% if messages %}
+        <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
     </body>
 </html>
-
-<!-- {% if user.id == None %} -->
- <!-- --show login- -->
-  <!-- {% else %} -->
-<!-- --show logout-- -->
- <!-- {% endif %} -->

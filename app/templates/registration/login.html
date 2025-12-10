@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card2">
+    <div class="card">
+        <h2 class="login-card" style="text-align: center;">Log In</h2>
+
+        <form class="login-form" method="post">
+            {% csrf_token %}
+
+            <div class="error-msg">
+            {{ form.non_field_errors }}
+            </div>
+
+            <div class="field">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+            </div>
+
+            <div class="field">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {{ form.password.errors }}
+            </div>
+
+            <div class="btn-center">
+                <button type="submit" class="login-button">Log In</button>
+            </div>
+        </form>
+
+        <a class="have-acc" href="/signup">Don't have an account?</a>
+    </div>
+</div>
+{% endblock %}

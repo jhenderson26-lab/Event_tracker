@@ -1,8 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
-# Create your models here.
 
+# Create your models here.
+class Log_In(models.Model):
+    username = models.TextField(max_length=30)
+    password = models.TextField(max_length=20)
+    email = models.TextField(max_length=50)
+
+class User(models.Model):
+    user= models.ForeignKey(Log_In, on_delete=models.CASCADE)
 
 class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
