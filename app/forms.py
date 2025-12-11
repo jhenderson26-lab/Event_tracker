@@ -8,5 +8,5 @@ class EventForm(forms.ModelForm):
         fields = ['title', 'set_date']
         labels = {
             'title': 'Event Name',
-            'set_date': 'Set Date',
+            'set_date': 'Set Date in Days',
         }

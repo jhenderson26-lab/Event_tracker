@@ -335,5 +335,7 @@ input[type="number"] {
 
 .whitet {
     color: white;
+    list-style-type: none;
+    align-items: center;
 }
 
