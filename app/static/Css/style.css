@@ -137,6 +137,9 @@ body {
     padding: 8px 12px;
     border-radius: 10px;
     text-decoration: none;
+    display: block;
+    justify-content: center;
+    align-self: center;
 }
 
 .login-form {
@@ -241,7 +244,11 @@ input {
 }
 
 .event-card {
-    color: black;
+    color: white;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
 }
 
 .t-event-box {

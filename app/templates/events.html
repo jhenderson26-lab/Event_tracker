@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="t-event-box">
+ <div class="t-event-box">
     <div class="event-cont">
         <h1 class="event-card">Make events here</h1>
         <form id="form" class="event-s" action="{% url 'create_event' %}" method="post">
             <div class="field-input">
                 <div class="inputs">
-                    {% csrf_token %}
-                    {{ event }}
-                </div>
+        {% csrf_token %}
+        {{ event }}
+        <button class="btn logout-btn" type="submit" id="event_button">submit</button>
+        </div>
             </div>
-        </form>
-      <button class="btn logout-btn" type="submit" id="event_button">submit</button>  
+    </form>
+      
     </div>
 </div>
 
-    <div class="b-event-box">
+        <div class="b-event-box">
         <h2 class="event-card">Events</h2>
         <div class="right-text">
             <div class="left-text">
-            <ul>
-                {% for e in text %}
-                <li>{{ e.title }} — until {{ e.until_event }} days</li>
+    <ul>
+        {% for e in text %}
+        <li>{{ e.title }} — until {{ e.until_event }} days</li>
                 </div>
         </div>
         <a href="{% url 'delete' e.id %}" class="whitet">Delete</a>
         {% empty %}
         <li class="whitet">No events yet.</li>
         {% endfor %}
-            </ul>
-    </div>
+    </ul>
+        </div>
+        </div>
+
 
 
         
