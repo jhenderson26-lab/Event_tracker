@@ -86,7 +86,7 @@ body {
 .hello {
     color: black;
     opacity: .9;
-    font-size: .95rem;
+    font-size: large;
 }
 
 .logout-form {
@@ -294,7 +294,7 @@ input[type="number"] {
 }
 
 .b-event-box {
-    height: 100px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -306,13 +306,14 @@ input[type="number"] {
     background: var(--nav-bg);
     display: block;
     margin: 0 auto;
-    width: 360px;
+    width: 260px;
     border-radius: 20px;
     box-shadow: 0 5px 7px -1px rgba(51, 51, 51, 0.23);
-    padding: 15px;
+    padding: 60px;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    width: min-content; min-width: 260px;
 }
 
 .right-text
