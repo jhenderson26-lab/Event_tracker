@@ -23,13 +23,13 @@ def home(request):
 
 def register_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = forms.SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('home') 
     else:
-        form = UserCreationForm()
+        form = forms.SignUpForm()
     context = { 'form': form }
     return render(request, 'Login&Signup/signup.html', context) 
 
