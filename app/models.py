@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
+
 # Create your models here.
 
 
@@ -19,3 +20,5 @@ class Event(models.Model):
             until_stripped = str(until).split("day", 1)[0]
             num_until = until_stripped.strip()
             return num_until
+        
+
