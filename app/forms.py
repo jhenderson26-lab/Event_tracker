@@ -7,10 +7,11 @@ from django.contrib.auth.forms import UserCreationForm
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['title', 'set_date']
+        fields = ['title','description', 'set_date']
         labels = {
             'title': 'Event Name',
-            'set_date': 'Set Date',
+            'description': 'Add a Description',
+            'set_date': 'Set Date in Days',
         }
 class SignUpForm(UserCreationForm):
     email = forms.EmailField()

@@ -8,6 +8,7 @@ from datetime import date
 class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    description = models.TextField(max_length=500, blank=True)
     set_date = models.PositiveSmallIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     event_date = models.DateField(null=True, blank=True)

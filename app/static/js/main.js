@@ -25,8 +25,6 @@ button.addEventListener('click', () => {
     
 })
 
-
-
 // button.onclick = function(event) {
 //   event.preventDefault();
 //   setTimeout(form.submit, 2000);
