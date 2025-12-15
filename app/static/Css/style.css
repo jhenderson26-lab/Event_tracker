@@ -10,18 +10,23 @@
 body {
     min-height: 100vh;
     background-repeat: no-repeat;
-    background-size: cover; 
-    background: #000000;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 12%, rgb(53, 147, 116) 54%, rgba(127, 255, 212, 1) 94%);
+    background-size: cover;
+    background:
+        repeating-linear-gradient(45deg,
+            #e8fffd,
+            #affff7 20px,
+            #affff7 20px,
+            #49ffed 40px)
 }
 
 .main-nav {
     position: sticky;
     top: 0;
     z-index: 50;
+    border-radius: 20px;
     backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
-    background: var(--nav-bg);
+    background: white;
     border-bottom: 1px solid var(--nav-border);
 }
 
@@ -115,7 +120,7 @@ body {
 }
 
 .logout-btn {
-    background: var(--nav-accent);
+    background: #49ffed;
     color: #07362b;
 }
 
@@ -137,6 +142,7 @@ body {
     padding: 8px 12px;
     border-radius: 10px;
     text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.179);
 }
 
 .login-form {
@@ -152,9 +158,7 @@ label {
     font-weight: 600px;
 }
 
-.login-form
-.field
-input {
+.login-form .field input {
     display: block;
     width: 98%;
     height: 70%;
@@ -166,7 +170,7 @@ input {
 .card {
     text-align: left;
     font-size: x-large;
-    color: #f2f2f2;
+    color: black;
     backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     background: var(--nav-bg);
@@ -188,8 +192,8 @@ input {
     border: 1px solid transparent;
     font-weight: 700;
     transition: transform .12s ease, filter .12s ease, border-color .12s ease;
-    background: var(--nav-accent);
-    color: #07362b;
+    background: black;
+    color: white;
     width: 30%;
     font-size: 16px;
 }
@@ -207,7 +211,7 @@ input {
 }
 
 .have-acc {
-    color: white;
+    color: black;
     text-align: center !important;
 }
 
@@ -244,27 +248,28 @@ input {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
-    gap: 20px; 
+    gap: 20px;
     padding: 20px;
 }
 
 .event {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.674);
     border: 1px solid white;
     padding: 15px;
     gap: 14px;
     width: 300px;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #f2f2f2;
+    color: black;
     backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
-    background: var(--nav-bg);
+    /* background: var(--nav-bg); */
     height: min-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.179);
 }
 
 .event h3 {
     margin-top: 0;
+    color: black;
 }
 
 .event-cont {
@@ -275,7 +280,8 @@ input {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    margin-top: 150px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.179);
 }
 
 .parent-container {
@@ -283,15 +289,123 @@ input {
     flex-direction: row;
 }
 
-.event-s 
-.event-field 
-input {
+.event-s .event-field input {
     display: block !important;
     width: 98% !important;
     height: 70% !important;
     outline: none;
     border: none;
     border-radius: 5px;
+}
+
+.delete-btn {
+    background: rgb(228, 74, 74);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.179);
+    color: black;
+    border: none;
+}
+
+.delete-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
 }
 
 /* .t-event-box {

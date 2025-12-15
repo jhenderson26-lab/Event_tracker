@@ -19,7 +19,7 @@ def home(request):
         context = {'owner': owner}
     else:
         context = None
-    return render(request, 'base.html', context)
+    return render(request, 'home.html', context)
 
 def register_view(request):
     if request.method == 'POST':

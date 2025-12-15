@@ -36,7 +36,11 @@
         {% for e in text %}
         <div class="event">
             <h3>{{ e.title }}</h3>
-            <p>{{ e.until_event }} more days until {{ e.title }}.</p>
+            {% if e.until_event > 1%}
+                <p>{{ e.until_event }} more days until {{ e.title }}.</p>
+            {% else %}
+                <p>{{ e.until_event }} more day until {{ e.title }}.</p>
+            {% endif %}
             <p> {{e.description}} </p>
             <button class="btn delete-btn"><a href="{% url 'delete' e.id %}" class="delete-btn-a">Delete</a></button>
         </div>
