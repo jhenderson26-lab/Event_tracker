@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatable" content="IE-edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="{% static 'Css/style.css' %}"/>
+        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+        <script type="module" src="{% static 'js/main.js' %}"></script>
         <title>{% block title %}TimeTo{% endblock %}</title>
     </head>
     <body>
@@ -37,10 +39,7 @@
             </div>
         </header>
         
-
         {% block content %}
         {% endblock content %}
-        <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-        <script type="module" src="{% static 'js/main.js' %}"></script>
     </body>
 </html>
